@@ -1,0 +1,19 @@
+{
+  "game": "Skystone",
+  "source-url": "https://github.com/NoahBres/MeepMeep/blob/master/src/main/resources/background/season-2019-skystone/field-2019-skystone-innov8rz-dark.jpg",
+  "field-image": "assets/fields/field-2019.jpg",
+  "field-corners": {
+    "top-left": [
+      0,
+      0
+    ],
+    "bottom-right": [
+      5000,
+      5000
+    ]
+  },
+  "field-size": [
+    3.66,
+    3.66
+  ]
+}

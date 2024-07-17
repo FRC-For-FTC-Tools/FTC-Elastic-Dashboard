@@ -53,7 +53,7 @@ void main() {
     SharedPreferences.setMockInitialValues({
       PrefKeys.ipAddress: '127.0.0.1',
       PrefKeys.teamNumber: 353,
-      PrefKeys.ipAddressMode: IPAddressMode.driverStation.index,
+      PrefKeys.ipAddressMode: IPAddressMode.controlHubIP.index,
       PrefKeys.teamColor: Colors.blueAccent.value,
       PrefKeys.showGrid: false,
       PrefKeys.gridSize: 128,

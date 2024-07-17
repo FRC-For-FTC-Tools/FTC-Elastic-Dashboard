@@ -22,12 +22,12 @@ class FieldWidgetModel extends NTWidgetModel {
   @override
   String type = 'Field';
 
-  static const String _defaultGame = 'Crescendo';
-  String _fieldGame = _defaultGame;
+  static const String defaultGame = 'Centerstage';
+  String _fieldGame = defaultGame;
   late Field _field;
 
-  double _robotWidthMeters = 0.85;
-  double _robotLengthMeters = 0.85;
+  double _robotWidthMeters = 0.45;
+  double _robotLengthMeters = 0.45;
 
   bool _showOtherObjects = true;
   bool _showTrajectories = true;
@@ -57,7 +57,7 @@ class FieldWidgetModel extends NTWidgetModel {
     _fieldGame = fieldName ?? _fieldGame;
 
     if (!FieldImages.hasField(_fieldGame)) {
-      _fieldGame = _defaultGame;
+      _fieldGame = defaultGame;
     }
 
     _field = FieldImages.getFieldFromGame(_fieldGame)!;
@@ -67,16 +67,16 @@ class FieldWidgetModel extends NTWidgetModel {
       : super.fromJson(jsonData: jsonData) {
     _fieldGame = tryCast(jsonData['field_game']) ?? _fieldGame;
 
-    _robotWidthMeters = tryCast(jsonData['robot_width']) ?? 0.85;
+    _robotWidthMeters = tryCast(jsonData['robot_width']) ?? 0.45;
     _robotLengthMeters = tryCast(jsonData['robot_length']) ??
         tryCast(jsonData['robot_height']) ??
-        0.85;
+        0.45;
 
     _showOtherObjects = tryCast(jsonData['show_other_objects']) ?? true;
     _showTrajectories = tryCast(jsonData['show_trajectories']) ?? true;
 
     if (!FieldImages.hasField(_fieldGame)) {
-      _fieldGame = _defaultGame;
+      _fieldGame = defaultGame;
     }
 
     _field = FieldImages.getFieldFromGame(_fieldGame)!;

@@ -1,0 +1,19 @@
+{
+  "game": "Freight Frenzy",
+  "source-url": "https://github.com/NoahBres/MeepMeep/blob/master/src/main/resources/background/season-2021-freightfrenzy/field-2021-adi-dark.png",
+  "field-image": "assets/fields/field-2021.png",
+  "field-corners": {
+    "top-left": [
+      0,
+      0
+    ],
+    "bottom-right": [
+      6016,
+      6016
+    ]
+  },
+  "field-size": [
+    3.66,
+    3.66
+  ]
+}

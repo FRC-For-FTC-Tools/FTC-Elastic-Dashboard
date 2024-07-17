@@ -1,0 +1,19 @@
+{
+  "game": "Powerplay",
+  "source-url": "https://github.com/NoahBres/MeepMeep/blob/master/src/main/resources/background/season-2022-powerplay/field-2022-kai-dark.png",
+  "field-image": "assets/fields/field-2022.png",
+  "field-corners": {
+    "top-left": [
+      0,
+      0
+    ],
+    "bottom-right": [
+      4170,
+      4170
+    ]
+  },
+  "field-size": [
+    3.66,
+    3.66
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "game": "Ultimate Goal",
+  "source-url": "https://github.com/NoahBres/MeepMeep/blob/master/src/main/resources/background/season-2020-ultimategoal/field-2020-innov8rz-dark.jpg",
+  "field-image": "assets/fields/field-2020.jpg",
+  "field-corners": {
+    "top-left": [
+      0,
+      0
+    ],
+    "bottom-right": [
+      4980,
+      4980
+    ]
+  },
+  "field-size": [
+    3.66,
+    3.66
+  ]
+}

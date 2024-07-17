@@ -86,7 +86,7 @@ class _DashboardPageState extends State<DashboardPage> with WindowListener {
 
     ntConnection.dsClientConnect(
       onIPAnnounced: (ip) async {
-        if (Settings.ipAddressMode != IPAddressMode.driverStation) {
+        if (Settings.ipAddressMode != IPAddressMode.controlHubIP) {
           return;
         }
 
@@ -909,12 +909,11 @@ class _DashboardPageState extends State<DashboardPage> with WindowListener {
           Settings.teamNumber = newTeamNumber;
 
           switch (Settings.ipAddressMode) {
-            case IPAddressMode.roboRIOmDNS:
-              _updateIPAddress(
-                  IPAddressUtil.teamNumberToRIOmDNS(newTeamNumber));
+            case IPAddressMode.controlHubIP:
+              _updateIPAddress("192.168. 43.1");
               break;
-            case IPAddressMode.teamNumber:
-              _updateIPAddress(IPAddressUtil.teamNumberToIP(newTeamNumber));
+            case IPAddressMode.localhost:
+              _updateIPAddress("localhost");
               break;
             default:
               setState(() {});
@@ -925,27 +924,14 @@ class _DashboardPageState extends State<DashboardPage> with WindowListener {
           if (mode == Settings.ipAddressMode) {
             return;
           }
+
           await _preferences.setInt(PrefKeys.ipAddressMode, mode.index);
 
           Settings.ipAddressMode = mode;
 
           switch (mode) {
-            case IPAddressMode.driverStation:
-              String? lastAnnouncedIP = ntConnection.dsClient.lastAnnouncedIP;
-
-              if (lastAnnouncedIP == null) {
-                break;
-              }
-
-              _updateIPAddress(lastAnnouncedIP);
-              break;
-            case IPAddressMode.roboRIOmDNS:
-              _updateIPAddress(
-                  IPAddressUtil.teamNumberToRIOmDNS(Settings.teamNumber));
-              break;
-            case IPAddressMode.teamNumber:
-              _updateIPAddress(
-                  IPAddressUtil.teamNumberToIP(Settings.teamNumber));
+            case IPAddressMode.controlHubIP:
+              _updateIPAddress("192.168. 43.1");
               break;
             case IPAddressMode.localhost:
               _updateIPAddress('localhost');
@@ -1121,6 +1107,19 @@ class _DashboardPageState extends State<DashboardPage> with WindowListener {
     }
     await _preferences.setString(PrefKeys.ipAddress, newIPAddress);
     Settings.ipAddress = newIPAddress;
+
+    switch (newIPAddress) {
+      case '192.168. 43.1':
+        Settings.ipAddressMode = IPAddressMode.controlHubIP;
+        break;
+      case 'localhost':
+      case '127.0.0.1':
+        Settings.ipAddressMode = IPAddressMode.localhost;
+        break;
+      default:
+        Settings.ipAddressMode = IPAddressMode.custom;
+        break;
+    }
 
     setState(() {
       ntConnection.changeIPAddress(newIPAddress);

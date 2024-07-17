@@ -157,10 +157,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
           initialData: ntConnection.isDSConnected,
           builder: (context, snapshot) {
             bool dsConnected = tryCast(snapshot.data) ?? false;
-
             return DialogTextInput(
               enabled: Settings.ipAddressMode == IPAddressMode.custom ||
-                  (Settings.ipAddressMode == IPAddressMode.driverStation &&
+                  (Settings.ipAddressMode == IPAddressMode.controlHubIP &&
                       !dsConnected),
               initialText: widget.preferences.getString(PrefKeys.ipAddress) ??
                   Settings.ipAddress,

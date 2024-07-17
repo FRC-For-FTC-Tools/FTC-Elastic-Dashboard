@@ -1,0 +1,19 @@
+{
+  "game": "Centerstage",
+  "source-url": "https://github.com/NoahBres/MeepMeep/blob/master/src/main/resources/background/season-2023-centerstage/field-2023-juice-dark.png",
+  "field-image": "assets/fields/field-2023.png",
+  "field-corners": {
+    "top-left": [
+      0,
+      0
+    ],
+    "bottom-right": [
+      4096,
+      4096
+    ]
+  },
+  "field-size": [
+    3.66,
+    3.66
+  ]
+}

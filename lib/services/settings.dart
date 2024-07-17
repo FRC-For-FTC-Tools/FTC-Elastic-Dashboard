@@ -5,7 +5,7 @@ class Settings {
       'https://github.com/Gold872/elastic-dashboard';
   static const String releasesLink = '$repositoryLink/releases/latest';
 
-  static IPAddressMode ipAddressMode = IPAddressMode.driverStation;
+  static IPAddressMode ipAddressMode = IPAddressMode.controlHubIP;
 
   static String ipAddress = '127.0.0.1';
   static int teamNumber = 9999;

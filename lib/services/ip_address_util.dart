@@ -2,11 +2,9 @@ import 'dart:io';
 import 'dart:typed_data';
 
 enum IPAddressMode {
-  driverStation('Driver Station'), // 0
-  teamNumber('Team Number (10.TE.AM.2)'), // 1
-  roboRIOmDNS('RoboRIO mDNS (roboRIO-###-FRC.local)'), // 2
-  localhost('localhost (127.0.0.1)'), // 3
-  custom('Custom'); // 4
+  controlHubIP('Control Hub (192.168. 43.1)'), // 1
+  localhost('localhost (127.0.0.1)'), // 2
+  custom('Custom'); // 3
 
   const IPAddressMode(this.displayName);
 
@@ -19,7 +17,7 @@ enum IPAddressMode {
 
   static IPAddressMode fromIndex(int? index) {
     if (index == null || index >= values.length) {
-      return driverStation;
+      return IPAddressMode.controlHubIP;
     }
 
     return values[index];
