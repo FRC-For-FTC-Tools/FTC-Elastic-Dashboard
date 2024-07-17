@@ -522,12 +522,12 @@ class FieldWidget extends NTWidget {
 
         Offset center = Offset(size.width / 2, size.height / 2);
         double offsetCenterDelta =
-            (model.field.fieldImageWidth?.toDouble() / 2 ?? 0.0);
+            -(model.field.fieldImageWidth?.toDouble() / 2 ?? 0.0);
         Offset fieldCenter = Offset(
                     (model.field.fieldImageWidth?.toDouble() ?? 0.0),
                     (model.field.fieldImageHeight?.toDouble() ?? 0.0)) /
                 2 +
-            Offset(-offsetCenterDelta, -offsetCenterDelta);
+            Offset(offsetCenterDelta, offsetCenterDelta);
 
         double scaleReduction = (_getBackgroundFitWidth(model, size)) /
             (model.field.fieldImageWidth ?? 1);
