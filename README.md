@@ -1,10 +1,10 @@
 # ![Elastic Logo](assets/logos/logo_full.png)
 
-[![Elastic](https://github.com/Gold872/elastic-dashboard/actions/workflows/elastic-ci.yml/badge.svg)](https://github.com/Gold872/elastic-dashboard/actions/workflows/elastic-ci.yml)
+[![Elastic](https://github.com/FRC-For-FTC-Tools/FTC-Elastic-Dashboard/actions/workflows/elastic-ci.yml/badge.svg)](https://github.com/FRC-For-FTC-Tools/FTC-Elastic-Dashboard/actions/workflows/elastic-ci.yml)
 
 A simple and modern dashboard for FRC.
 
-Download files can be found [here](https://github.com/Gold872/elastic-dashboard/releases/latest), the supported platforms are Windows, MacOS, and Linux.
+Download files can be found [here](https://github.com/FRC-For-FTC-Tools/FTC-Elastic-Dashboard/releases/latest), the supported platforms are Windows, MacOS, and Linux.
 
 _Important Notes/Warnings:_ 
 * _Your robot code must be using WPILib version 2023.3.1 or higher, otherwise you might not be able to add widgets._

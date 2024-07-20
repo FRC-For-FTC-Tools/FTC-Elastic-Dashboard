@@ -13,8 +13,8 @@ class UpdateChecker {
     logger.info('Checking for updates');
 
     try {
-      Release latestRelease = await _github.repositories
-          .getLatestRelease(RepositorySlug('Gold872', 'elastic-dashboard'));
+      Release latestRelease = await _github.repositories.getLatestRelease(
+          RepositorySlug('FRC-For-FTC-Tools', 'FTC-Elastic-Dashboard'));
 
       String? tagName = latestRelease.tagName;
 

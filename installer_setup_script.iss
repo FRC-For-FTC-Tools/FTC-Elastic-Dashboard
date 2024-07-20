@@ -1,7 +1,4 @@
-#define MyAppName "Elastic"
-#define MyAppFolderName "FRC Elastic"
-#define MyAppPublisher "Gold87"
-#define MyAppURL "https://github.com/gold872/elastic-dashboard/"
+
 #define MyAppExeName "elastic_dashboard.exe"
 #define ApplicationVersion GetStringFileInfo('build\windows\x64\runner\Release\elastic_dashboard.exe', 'ProductVersion')
 
