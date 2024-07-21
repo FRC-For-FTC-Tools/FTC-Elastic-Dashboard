@@ -5,7 +5,7 @@ import 'package:dot_cast/dot_cast.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-import 'package:elastic_dashboard/services/nt_connection.dart';
+import 'package:elastic_dashboard/services/nt4_client.dart';
 import 'package:elastic_dashboard/services/text_formatter_builder.dart';
 import 'package:elastic_dashboard/widgets/dialog_widgets/dialog_dropdown_chooser.dart';
 import 'package:elastic_dashboard/widgets/dialog_widgets/dialog_text_input.dart';
@@ -58,6 +58,8 @@ class NumberBarModel extends NTWidgetModel {
   }
 
   NumberBarModel({
+    required super.ntConnection,
+    required super.preferences,
     required super.topic,
     double minValue = -1.0,
     double maxValue = 1.0,
@@ -73,8 +75,11 @@ class NumberBarModel extends NTWidgetModel {
         _minValue = minValue,
         super();
 
-  NumberBarModel.fromJson({required Map<String, dynamic> jsonData})
-      : super.fromJson(jsonData: jsonData) {
+  NumberBarModel.fromJson({
+    required super.ntConnection,
+    required super.preferences,
+    required Map<String, dynamic> jsonData,
+  }) : super.fromJson(jsonData: jsonData) {
     _minValue = tryCast(jsonData['min_value']) ?? -1.0;
     _maxValue = tryCast(jsonData['max_value']) ?? 1.0;
     _divisions = tryCast(jsonData['divisions']);
@@ -86,11 +91,11 @@ class NumberBarModel extends NTWidgetModel {
   Map<String, dynamic> toJson() {
     return {
       ...super.toJson(),
-      'min_value': _minValue,
-      'max_value': _maxValue,
-      'divisions': _divisions,
-      'inverted': _inverted,
-      'orientation': _orientation,
+      'min_value': minValue,
+      'max_value': maxValue,
+      if (divisions != null) 'divisions': divisions,
+      'inverted': inverted,
+      'orientation': orientation,
     };
   }
 
@@ -203,15 +208,17 @@ class NumberBar extends NTWidget {
 
     return StreamBuilder(
       stream: model.subscription?.periodicStream(yieldAll: false),
-      initialData: ntConnection.getLastAnnouncedValue(model.topic),
+      initialData: model.ntConnection.getLastAnnouncedValue(model.topic),
       builder: (context, snapshot) {
-        double value = tryCast(snapshot.data) ?? 0.0;
+        double value = tryCast<num>(snapshot.data)?.toDouble() ?? 0.0;
 
         double clampedValue = value.clamp(model.minValue, model.maxValue);
 
         double? divisionInterval = (model.divisions != null)
             ? (model.maxValue - model.minValue) / (model.divisions! - 1)
             : null;
+
+        int fractionDigits = (model.dataType == NT4TypeStr.kInt) ? 0 : 2;
 
         LinearGaugeOrientation gaugeOrientation =
             (model.orientation == 'vertical')
@@ -220,7 +227,7 @@ class NumberBar extends NTWidget {
 
         List<Widget> children = [
           Text(
-            value.toStringAsFixed(2),
+            value.toStringAsFixed(fractionDigits),
             style: Theme.of(context).textTheme.bodyLarge,
             overflow: TextOverflow.ellipsis,
           ),
