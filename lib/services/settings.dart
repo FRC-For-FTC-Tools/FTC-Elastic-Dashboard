@@ -26,7 +26,7 @@ class Settings {
 }
 
 class Defaults {
-  static IPAddressMode ipAddressMode = IPAddressMode.driverStation;
+  static IPAddressMode ipAddressMode = IPAddressMode.controlHubIP;
 
   static FlexSchemeVariant themeVariant = FlexSchemeVariant.material3Legacy;
   static const String defaultVariantName = 'Material-3 Legacy (Default)';
