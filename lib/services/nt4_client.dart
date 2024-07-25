@@ -537,6 +537,7 @@ class NT4Client {
       await _mainWebsocket!.ready;
     } catch (e) {
       // Failed to connect... try again
+      logger.error('NT4 Error', e);
       logger.info(
           'Failed to connect to network tables, attempting to reconnect in 500 ms');
       if (_attemptingConnection) {

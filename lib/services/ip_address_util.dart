@@ -2,7 +2,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 enum IPAddressMode {
-  controlHubIP('Control Hub (192.168. 43.1)'), // 1
+  controlHubIP('Control Hub (192.168.43.1)'), // 1
+  phoneIP('Phone Hub (192.168.49.1)'),
   localhost('localhost (127.0.0.1)'), // 2
   custom('Custom'); // 3
 

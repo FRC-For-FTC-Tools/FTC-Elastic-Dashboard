@@ -953,7 +953,7 @@ class _DashboardPageState extends State<DashboardPage> with WindowListener {
 
           switch (Settings.ipAddressMode) {
             case IPAddressMode.controlHubIP:
-              _updateIPAddress("192.168. 43.1");
+              _updateIPAddress("192.168.43.1");
               break;
             case IPAddressMode.localhost:
               _updateIPAddress("localhost");
@@ -974,7 +974,10 @@ class _DashboardPageState extends State<DashboardPage> with WindowListener {
 
           switch (mode) {
             case IPAddressMode.controlHubIP:
-              _updateIPAddress("192.168. 43.1");
+              _updateIPAddress("192.168.43.1");
+              break;
+            case IPAddressMode.phoneIP:
+              _updateIPAddress("192.168.49.1");
               break;
             case IPAddressMode.localhost:
               _updateIPAddress('localhost');
@@ -1149,7 +1152,7 @@ class _DashboardPageState extends State<DashboardPage> with WindowListener {
     Settings.ipAddress = newIPAddress;
 
     switch (newIPAddress) {
-      case '192.168. 43.1':
+      case '192.168.39.1':
         Settings.ipAddressMode = IPAddressMode.controlHubIP;
         break;
       case 'localhost':
