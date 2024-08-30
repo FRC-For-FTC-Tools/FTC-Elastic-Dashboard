@@ -1,9 +1,11 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
-import 'package:elastic_dashboard/widgets/nt_widgets/multi-topic/field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:collection/collection.dart';
+
+import 'package:elastic_dashboard/widgets/nt_widgets/multi-topic/field_widget.dart';
 
 class FieldImages {
   static List<Field> fields = [];
